@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61159F79217813120083510C /* Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F78217813120083510C /* Kingfisher.swift */; };
+		61159F7B2178152A0083510C /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F7A2178152A0083510C /* String+MD5.swift */; };
+		61159F7D2178155E0083510C /* ThreadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F7C2178155E0083510C /* ThreadHelper.swift */; };
+		61159F7F217815D10083510C /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F7E217815D10083510C /* Box.swift */; };
+		61159F812178165C0083510C /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F802178165C0083510C /* Resource.swift */; };
+		61159F83217817BA0083510C /* RequestModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F82217817BA0083510C /* RequestModifier.swift */; };
+		61159F85217819440083510C /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F84217819440083510C /* Placeholder.swift */; };
+		61159F8721781BEE0083510C /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F8621781BEE0083510C /* Indicator.swift */; };
+		61159F8921781FE40083510C /* KingfisherOptionsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F8821781FE40083510C /* KingfisherOptionsInfo.swift */; };
+		61159F8B217820CD0083510C /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F8A217820CD0083510C /* Image.swift */; };
+		61159F8D21784FAC0083510C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F8C21784FAC0083510C /* ImageCache.swift */; };
+		61159F8F217856D10083510C /* CacheSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F8E217856D10083510C /* CacheSerializer.swift */; };
+		61159F91217858F30083510C /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F90217858F30083510C /* Filter.swift */; };
+		61159F9321785D1C0083510C /* FormatIndicatedCacheSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F9221785D1C0083510C /* FormatIndicatedCacheSerializer.swift */; };
+		61159F95217871B90083510C /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F94217871B90083510C /* ImageDownloader.swift */; };
+		61159F97217871D30083510C /* ImageModifer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F96217871D30083510C /* ImageModifer.swift */; };
 		61B0C72A2122ACFA00EA827B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B0C7292122ACFA00EA827B /* AppDelegate.swift */; };
 		61B0C72C2122ACFA00EA827B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B0C72B2122ACFA00EA827B /* ViewController.swift */; };
 		61B0C72F2122ACFB00EA827B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61B0C72D2122ACFB00EA827B /* Main.storyboard */; };
@@ -29,6 +45,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		61159F78217813120083510C /* Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kingfisher.swift; sourceTree = "<group>"; };
+		61159F7A2178152A0083510C /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
+		61159F7C2178155E0083510C /* ThreadHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadHelper.swift; sourceTree = "<group>"; };
+		61159F7E217815D10083510C /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		61159F802178165C0083510C /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		61159F82217817BA0083510C /* RequestModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModifier.swift; sourceTree = "<group>"; };
+		61159F84217819440083510C /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
+		61159F8621781BEE0083510C /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
+		61159F8821781FE40083510C /* KingfisherOptionsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingfisherOptionsInfo.swift; sourceTree = "<group>"; };
+		61159F8A217820CD0083510C /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		61159F8C21784FAC0083510C /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		61159F8E217856D10083510C /* CacheSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheSerializer.swift; sourceTree = "<group>"; };
+		61159F90217858F30083510C /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		61159F9221785D1C0083510C /* FormatIndicatedCacheSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatIndicatedCacheSerializer.swift; sourceTree = "<group>"; };
+		61159F94217871B90083510C /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		61159F96217871D30083510C /* ImageModifer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModifer.swift; sourceTree = "<group>"; };
 		61B0C7262122ACFA00EA827B /* ZDAnimatorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZDAnimatorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61B0C7292122ACFA00EA827B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61B0C72B2122ACFA00EA827B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +95,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		61159F77217812CE0083510C /* KingfisherWrite */ = {
+			isa = PBXGroup;
+			children = (
+				61159F78217813120083510C /* Kingfisher.swift */,
+				61159F8821781FE40083510C /* KingfisherOptionsInfo.swift */,
+				61159F7A2178152A0083510C /* String+MD5.swift */,
+				61159F7C2178155E0083510C /* ThreadHelper.swift */,
+				61159F7E217815D10083510C /* Box.swift */,
+				61159F802178165C0083510C /* Resource.swift */,
+				61159F82217817BA0083510C /* RequestModifier.swift */,
+				61159F84217819440083510C /* Placeholder.swift */,
+				61159F8E217856D10083510C /* CacheSerializer.swift */,
+				61159F90217858F30083510C /* Filter.swift */,
+				61159F9221785D1C0083510C /* FormatIndicatedCacheSerializer.swift */,
+				61159F8621781BEE0083510C /* Indicator.swift */,
+				61159F8A217820CD0083510C /* Image.swift */,
+				61159F8C21784FAC0083510C /* ImageCache.swift */,
+				61159F94217871B90083510C /* ImageDownloader.swift */,
+				61159F96217871D30083510C /* ImageModifer.swift */,
+			);
+			path = KingfisherWrite;
+			sourceTree = "<group>";
+		};
 		61B0C71D2122ACFA00EA827B = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +137,7 @@
 		61B0C7282122ACFA00EA827B /* ZDAnimatorDemo */ = {
 			isa = PBXGroup;
 			children = (
+				61159F77217812CE0083510C /* KingfisherWrite */,
 				61B0C73B2122AD2900EA827B /* ZDAnimatorKit */,
 				61B0C7292122ACFA00EA827B /* AppDelegate.swift */,
 				61B0C72B2122ACFA00EA827B /* ViewController.swift */,
@@ -185,21 +241,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61159F7D2178155E0083510C /* ThreadHelper.swift in Sources */,
+				61159F9321785D1C0083510C /* FormatIndicatedCacheSerializer.swift in Sources */,
 				61B0C74B2122AD2900EA827B /* AnimationTransitionConfig.swift in Sources */,
+				61159F91217858F30083510C /* Filter.swift in Sources */,
 				61B0C7462122AD2900EA827B /* AnimationInteractiveTransition.swift in Sources */,
 				61B0C7572122C68F00EA827B /* TikTokControll.swift in Sources */,
+				61159F7B2178152A0083510C /* String+MD5.swift in Sources */,
 				61B0C74A2122AD2900EA827B /* AnimationTikTokEffect.swift in Sources */,
+				61159F83217817BA0083510C /* RequestModifier.swift in Sources */,
+				61159F8721781BEE0083510C /* Indicator.swift in Sources */,
+				61159F812178165C0083510C /* Resource.swift in Sources */,
+				61159F79217813120083510C /* Kingfisher.swift in Sources */,
 				61B0C72C2122ACFA00EA827B /* ViewController.swift in Sources */,
 				61B0C7512122B3FA00EA827B /* SmoothController.swift in Sources */,
+				61159F8D21784FAC0083510C /* ImageCache.swift in Sources */,
+				61159F8921781FE40083510C /* KingfisherOptionsInfo.swift in Sources */,
+				61159F7F217815D10083510C /* Box.swift in Sources */,
 				61B0C74F2122AE6500EA827B /* UIViewController+SwizzleMethod.swift in Sources */,
 				61B0C7492122AD2900EA827B /* AnimationSmoothEffect.swift in Sources */,
 				61B0C7552122C0D700EA827B /* MagicMoveController.swift in Sources */,
 				61B0C7532122B6A900EA827B /* MaskController.swift in Sources */,
 				61B0C7452122AD2900EA827B /* AnimationBasicEffect.swift in Sources */,
+				61159F97217871D30083510C /* ImageModifer.swift in Sources */,
+				61159F8B217820CD0083510C /* Image.swift in Sources */,
 				61B0C74D2122AD2900EA827B /* UIViewController+AnimationTransition.swift in Sources */,
+				61159F8F217856D10083510C /* CacheSerializer.swift in Sources */,
 				61B0C7482122AD2900EA827B /* AnimationMaskEffect.swift in Sources */,
 				61B0C74C2122AD2900EA827B /* UINavigationController+AnimationTransition.swift in Sources */,
+				61159F95217871B90083510C /* ImageDownloader.swift in Sources */,
 				61B0C72A2122ACFA00EA827B /* AppDelegate.swift in Sources */,
+				61159F85217819440083510C /* Placeholder.swift in Sources */,
 				61B0C7472122AD2900EA827B /* AnimationMagicMoveEffect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
