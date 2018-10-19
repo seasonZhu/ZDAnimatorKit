@@ -35,7 +35,10 @@ struct DefaultCacheSerializer: CacheSerializer {
     
     func image(with data: Data, options: KingfisherOptionsInfo?) -> Image? {
         let options = options ?? KingfisherEmptyOptionsInfo
-        // TODO: -preloadAllAnimationData onlyFirstFrame 参数设置要重新写
-        return Kingfisher<Image>.image(data: data, scale: 1.0, preloadAllAnimationData: true, onlyFirstFrame: false)
+        return Kingfisher<Image>.image(
+            data: data,
+            scale: 1.0,
+            preloadAllAnimationData: options.preloadAllAnimationData,
+            onlyFirstFrame: options.onlyLoadFirstFrame)
     }
 }

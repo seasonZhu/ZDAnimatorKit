@@ -121,7 +121,7 @@ final class ActivityIndicator: Indicator {
     }
 }
 
-// TODO: - 这个要后写 设计Kingfisher的配置相关
+// TODO: - ImageProcessor KingfisherOptionsInfo 的配置相关
 final class ImageIndicator {
     
 }

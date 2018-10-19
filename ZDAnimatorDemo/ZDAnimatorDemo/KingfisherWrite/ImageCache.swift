@@ -88,7 +88,12 @@ class ImageCache {
         }
         
         #if !os(macOS) && !os(watchOS)
-        // TODO: -来添加观察者
+            NotificationCenter.default.addObserver(
+            self, selector: #selector(clearMemoryCache), name: .UIApplicationDidReceiveMemoryWarning, object: nil)
+            NotificationCenter.default.addObserver(
+            self, selector: #selector(cleanExpiredDiskCache), name: .UIApplicationWillTerminate, object: nil)
+            NotificationCenter.default.addObserver(
+            self, selector: #selector(backgroundCleanExpiredDiskCache), name: .UIApplicationDidEnterBackground, object: nil)
         #endif
     }
     
@@ -176,11 +181,36 @@ class ImageCache {
                             options: KingfisherOptionsInfo?,
                             completionHandler: ((Image?, CacheType) -> Void)?) -> RetrieveImageDiskTask?
     {
+        guard let completionHandler = completionHandler else {
+            return nil
+        }
+        
+        var block: RetrieveImageDiskTask?
+        let options = options ?? KingfisherEmptyOptionsInfo
+        let imageModifier = options.imageModifier
+        
+        if let image = self.retrieveImageInMemoryCache(forKey: key, options: options) {
+            options.callbackDispatchQueue.safeAsync {
+                completionHandler(imageModifier.modify(image), .memory)
+            }
+        }else if options.fromMemoryCacheOrRefresh {
+            options.callbackDispatchQueue.safeAsync {
+                completionHandler(nil, .none)
+            }
+        }else {
+            var sSelf: ImageCache! = self
+            block = DispatchWorkItem(block: {
+                // TODO: -processor
+            })
+        }
+        
         return nil
     }
     
     //TODO:- 从缓存中获取图片
     func retrieveImageInMemoryCache(forKey key: String, options: KingfisherOptionsInfo? = nil) -> Image? {
+        
+        let options = options ?? KingfisherEmptyOptionsInfo
         
         return nil
     }
@@ -192,7 +222,7 @@ class ImageCache {
     }
     
     //MARK:- 清除内存中的缓存
-    func clearMemoryCache() {
+    @objc func clearMemoryCache() {
         memeoryCache.removeAllObjects()
     }
 
@@ -313,9 +343,10 @@ class ImageCache {
         return (urlsToDelete, diskCacheSize, cachedFiles)
     }
     
+    // FIXME: -重点学习
     //MARK:- 后台进行过期缓存的沙盒清理
     #if !os(macOS) && !os(watchOS)
-    func backgroundClearnCleanExpiredDiskCache() {
+    @objc func backgroundCleanExpiredDiskCache() {
         guard let shareApplication = Kingfisher<UIApplication>.shared else {
             return
         }

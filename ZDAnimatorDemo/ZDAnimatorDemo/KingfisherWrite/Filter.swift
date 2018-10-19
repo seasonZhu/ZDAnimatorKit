@@ -36,8 +36,7 @@ struct Filter {
             filter.setValue(colorImage, forKey: kCIInputImageKey)
             filter.setValue(input, forKey: kCIInputBackgroundImageKey)
             #if swift(>=4.0)
-            // TODO: -这个地方强制解包了 原来的代码没有这个问题
-            return (filter.outputImage?.cropped(to: input.extent))!
+            return filter.outputImage?.cropped(to: input.extent)
             #else
             return filter.outputImage?.cropping(to: input.extent)
             #endif

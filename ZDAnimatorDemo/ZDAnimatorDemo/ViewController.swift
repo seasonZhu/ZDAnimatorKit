@@ -74,4 +74,19 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
-
+struct A: OptionSet {
+    
+    let rawValue: UInt
+    
+    init(rawValue: A.RawValue) {
+        self.rawValue = rawValue
+        
+        let array: NSArray = [1, 2, 3]
+        
+        array.enumerateObjects { (num, index, stop) in
+            if index == 2 {
+                stop.pointee = true
+            }
+        }
+    }
+}
