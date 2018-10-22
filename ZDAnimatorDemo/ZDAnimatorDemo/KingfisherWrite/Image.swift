@@ -343,6 +343,153 @@ extension Kingfisher where Base: Image {
     }
     #endif
     
+    //MARK:- - Overlay
+    func overlaying(with color: Color, fraction: CGFloat) -> Image {
+        guard let cgImage = cgImage else {
+            assertionFailure("[Kingfisher] Overlaying only works for CG-based image.")
+            return base
+        }
+        
+        let rect = CGRect(origin: .zero, size: CGSize(width: size.width, height: size.height))
+        
+        return draw(cgImage: cgImage, to: rect.size, draw: {
+            #if os(macOS)
+            base.draw(in: rect)
+            if fraction > 0 {
+                color.withAlphaComponent(1 - fraction).set()
+                rect.fill(using: .sourceAtop)
+            }
+            #else
+            color.set()
+            UIRectFill(rect)
+            base.draw(in: rect, blendMode: .destinationIn, alpha: 1.0)
+            
+            if fraction > 0 {
+                base.draw(in: rect, blendMode: .sourceAtop, alpha: fraction)
+            }
+            #endif
+        })
+    }
+    
+    //MARK:-Tint
+    func tinted(with color: Color) -> Image {
+        #if os(watchOS)
+            return base
+        #else
+            return apply(.tint(color))
+        #endif
+    }
+    
+    //MARK:- Color Control
+    func adjusted(brightness: CGFloat, contrast: CGFloat, saturation: CGFloat, inputEV: CGFloat) -> Image {
+        #if os(watchOS)
+        return base
+        #else
+        return apply(.colorControl((brightness, contrast, saturation, inputEV)))
+        #endif
+    }
+    
+    //FIXME: 重点学习
+    //MARK:- Round Corner
+    func image(withRoundRadius radius: CGFloat, fit size: CGSize, roundingCorners corners: RectCorner = .all, backgroundColor: Color? = nil) -> Image {
+        guard let cgImage = cgImage else {
+            assertionFailure("[Kingfisher] Round corner image only works for CG-based image.")
+            return base
+        }
+        
+        let rect = CGRect(origin: CGPoint.zero, size: size)
+        return draw(cgImage: cgImage, to: size) {
+            #if os(macOS)
+            if let backgroundColor = backgroundColor {
+                let rectPath = NSBezierPath(rect: rect)
+                backgroundColor.setFill()
+                rectPath.fill()
+            }
+            
+            let path = NSBezierPath(roundedRect: rect, byRoundingCorners: corners, radius: radius)
+            path.windingRule = .evenOddWindingRule
+            path.addClip()
+            base.draw(in: rect)
+            #else
+            guard let context = UIGraphicsGetCurrentContext() else {
+                assertionFailure("[Kingfisher] Failed to create CG context for image.")
+                return
+            }
+            
+            if let backgroundColor = backgroundColor {
+                let rectPath = UIBezierPath(rect: rect)
+                backgroundColor.setFill()
+                rectPath.fill()
+            }
+            
+            let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners.uiRectCorner, cornerRadii: CGSize(width: radius, height: radius)).cgPath
+            
+            context.addPath(path)
+            context.clip()
+            base.draw(in: rect)
+            #endif
+        }
+    }
+    
+    //MARK:- Resize
+    #if os(iOS) || os(tvOS)
+    func resize(to size: CGSize, for contentMode: UIViewContentMode)  -> Image {
+        switch contentMode {
+        case .scaleAspectFit:
+            return resize(to: size, for: .aspectFit)
+        case .scaleAspectFill:
+            return resize(to: size, for: .aspectFill)
+        default:
+            return resize(to: size)
+        }
+    }
+    #endif
+    
+    func resize(to size: CGSize) -> Image {
+        guard let cgImage = cgImage else {
+            assertionFailure("[Kingfisher] Resize only works for CG-based image.")
+            return base
+        }
+        
+        let rect = CGRect(origin: CGPoint.zero, size: size)
+        
+        return draw(cgImage: cgImage, to: size) {
+            #if os(macOS)
+            base.draw(in: rect, from: NSRect.zero, operation: .copy, fraction: 1.0)
+            #else
+            base.draw(in: rect)
+            #endif
+        }
+    }
+    
+    func resize(to size: CGSize, for contentMode: ContentMode) -> Image {
+        switch contentMode {
+        case .aspectFit:
+            let newSize = self.size.kf.constrained(size)
+            return resize(to: newSize)
+        case .aspectFill:
+            let newSize = self.size.kf.filling(size: size)
+            return resize(to: newSize)
+        default:
+            return resize(to: size)
+        }
+    }
+    
+    func crop(to size: CGSize, anchorOn anchor: CGPoint) -> Image {
+        guard let cgImage = cgImage else {
+            assertionFailure("[Kingfisher] Crop only works for CG-based image.")
+            return base
+        }
+        
+        let rect = self.size.kf.constrainedRect(for: size, anchor: anchor)
+        guard let image = cgImage.cropping(to: rect.scaled(scale)) else {
+            assertionFailure("[Kingfisher] Cropping image failed.")
+            return base
+        }
+        
+        return Kingfisher.image(cgImage: image, scale: scale, refImage: base)
+    }
+    
     //MARK:- Blur
     func blurred(withRadius radius: CGFloat) -> Image {
         #if os(watchOS)
@@ -427,40 +574,6 @@ extension Kingfisher where Base: Image {
         #endif
     }
     
-    //MARK:- - Overlay
-    func overlaying(with color: Color, fraction: CGFloat) -> Image {
-        guard let cgImage = cgImage else {
-            assertionFailure("[Kingfisher] Overlaying only works for CG-based image.")
-            return base
-        }
-        
-        let rect = CGRect(origin: .zero, size: CGSize(width: size.width, height: size.height))
-        
-        return draw(cgImage: cgImage, to: rect.size, draw: {
-            #if os(macOS)
-            base.draw(in: rect)
-            if fraction > 0 {
-                color.withAlphaComponent(1 - fraction).set()
-                rect.fill(using: .sourceAtop)
-            }
-            #else
-            color.set()
-            UIRectFill(rect)
-            base.draw(in: rect, blendMode: .destinationIn, alpha: 1.0)
-            
-            if fraction > 0 {
-                base.draw(in: rect, blendMode: .sourceAtop, alpha: fraction)
-            }
-            #endif
-        })
-    }
-    
-    // TODO: - Tint
-    
-    // TODO: - Round Corner
-    
-    // TODO: - Color Control
-    
     //MARK:- scale Image
     func scaled(to scale: CGFloat) -> Image {
         guard scale != self.scale else {
@@ -478,6 +591,11 @@ extension Kingfisher where Base: Image {
 
 // MARK: - 图片解码
 extension Kingfisher where Base: Image {
+    
+    var decoded: Image {
+        return decode(scale: scale)
+    }
+    
     func decode(scale: CGFloat) -> Image {
         // prevent animated image (GIF) lose it's images
         #if os(iOS)
@@ -580,9 +698,45 @@ extension CGSize: KingfisherCompatible {
     }
 }
 
-// TODO: - 差ContentMode这个属性
 extension CGSizeProxy {
+    func resize(to size: CGSize, for contentMode: ContentMode) -> CGSize {
+        switch contentMode {
+        case .aspectFit:
+            return constrained(size)
+        case .aspectFill:
+            return filling(size: size)
+        default:
+            return self.base
+        }
+    }
     
+    func constrained(_ size: CGSize) -> CGSize {
+        let aspectWidth = round(aspectRatio * size.height)
+        let aspectHeight = round(size.width / aspectRatio)
+        return aspectWidth > size.width ? CGSize(width: size.width, height: aspectHeight) : CGSize(width: aspectWidth, height: size.height)
+    }
+    
+    func filling(size: CGSize) -> CGSize {
+        let aspectWidth = round(aspectRatio * size.height)
+        let aspectHeight = round(size.width / aspectRatio)
+        return aspectWidth < size.width ? CGSize(width: size.width, height: aspectHeight) : CGSize(width: aspectWidth, height: size.height)
+    }
+    
+    func constrainedRect(for size: CGSize, anchor: CGPoint) -> CGRect {
+        let unifiedAnchor = CGPoint(x: anchor.x.clamped(to: 0.0 ... 1.0), y: anchor.y.clamped(to: 0.0 ... 1.0))
+        
+        let x = unifiedAnchor.x * base.width - unifiedAnchor.x * size.width
+        let y = unifiedAnchor.y * base.height - unifiedAnchor.y * size.height
+        let r = CGRect(x: x, y: y, width: size.width, height: size.height)
+        
+        let ori = CGRect(origin: CGPoint.zero, size: base)
+        return ori.intersection(r)
+    }
+    
+    /// 宽高比
+    private var aspectRatio: CGFloat {
+        return base.height == 0.0 ? 1.0 : base.width / base.height
+    }
 }
 
 extension CGRect {
@@ -742,18 +896,17 @@ extension NSBezierPath {
 }
 
 #else
-// TODO: - RectCorner还没有写
-//extension RectCorner {
-//    var uiRectCorner: UIRectCorner {
-//
-//        var result: UIRectCorner = []
-//
-//        if self.contains(.topLeft) { result.insert(.topLeft) }
-//        if self.contains(.topRight) { result.insert(.topRight) }
-//        if self.contains(.bottomLeft) { result.insert(.bottomLeft) }
-//        if self.contains(.bottomRight) { result.insert(.bottomRight) }
-//
-//        return result
-//    }
-//}
+extension RectCorner {
+    var uiRectCorner: UIRectCorner {
+
+        var result: UIRectCorner = []
+
+        if self.contains(.topLeft) { result.insert(.topLeft) }
+        if self.contains(.topRight) { result.insert(.topRight) }
+        if self.contains(.bottomLeft) { result.insert(.bottomLeft) }
+        if self.contains(.bottomRight) { result.insert(.bottomRight) }
+
+        return result
+    }
+}
 #endif

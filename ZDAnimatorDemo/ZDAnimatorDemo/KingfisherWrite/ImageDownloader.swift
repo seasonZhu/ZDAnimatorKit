@@ -448,7 +448,35 @@ final class ImageDownloaderSessionHandler: NSObject, URLSessionDataDelegate, Aut
                 let completionHandler = content.callback.completionHandler
                 let callbackQueue = options.callbackDispatchQueue
                 
-                // TODO: 缺少processor
+                let processor = options.processor
+                var image = imageCache[processor.identifier]
+                if let data = data, image == nil {
+                    image = processor.process(item: .data(data), options: options)
+                    imageCache[processor.identifier] = image
+                }
+                
+                if let image = image {
+                    downloader.delegate?.imageDownloader(downloader, didDownload: image, for: url, with: task.response)
+                    
+                    let imageModifier = options.imageModifier
+                    let finalImage = imageModifier.modify(image)
+                    
+                    if options.backgroundDecode {
+                        let decodedImage = finalImage.kf.decoded
+                        callbackQueue.safeAsync { completionHandler?(decodedImage, nil, url, data) }
+                    }else {
+                        callbackQueue.safeAsync { completionHandler?(finalImage, nil, url, data) }
+                    }
+                }else {
+                    if let res = task.response {
+                        let notModified = NSError(domain: KingfisherErrorDomain, code: KingfisherError.notModified.rawValue, userInfo: nil)
+                        completionHandler?(nil, notModified, url, nil)
+                        continue
+                    }
+                    
+                    let badData = NSError(domain: KingfisherErrorDomain, code: KingfisherError.badData.rawValue, userInfo: nil)
+                    callbackQueue.safeAsync { completionHandler?(nil, badData, url, nil) }
+                }
             }
         }
     }

@@ -16,7 +16,20 @@ private let ciContext = CIContext(options: nil)
 typealias Transformer = (CIImage) -> CIImage?
 
 
-// TODO: - ImageProcessor协议的继承与分类使用
+protocol CIImageProcessor: ImageProcessor {
+    var filter: Filter { get }
+}
+
+extension CIImageProcessor {
+    func process(item: ImageProcessItem, options: KingfisherOptionsInfo) -> Image? {
+        switch item {
+        case .image(let image):
+            return image.kf.apply(filter)
+        case .data(_):
+            return (DefaultImageProcessor.default >> self).process(item: item, options: options)
+        }
+    }
+}
 
 
 struct Filter {

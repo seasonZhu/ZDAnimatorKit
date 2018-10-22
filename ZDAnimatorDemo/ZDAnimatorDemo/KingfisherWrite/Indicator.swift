@@ -121,7 +121,53 @@ final class ActivityIndicator: Indicator {
     }
 }
 
-// TODO: - ImageProcessor KingfisherOptionsInfo 的配置相关
 final class ImageIndicator {
+    private let animatedImageIndicatorView: ImageView
     
+    var view: IndicatorView {
+        return animatedImageIndicatorView
+    }
+    
+    init?(imageData data: Data, processor: ImageProcessor = DefaultImageProcessor.default, options: KingfisherOptionsInfo = KingfisherEmptyOptionsInfo) {
+        var options = options
+        
+        if !options.preloadAllAnimationData {
+            options.append(.preloadAllAnimationData)
+        }
+        
+        guard let image = processor.process(item: .data(data), options: options) else {
+            return nil
+        }
+        
+        animatedImageIndicatorView = ImageView()
+        animatedImageIndicatorView.image = image
+        animatedImageIndicatorView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+        
+        #if os(macOS)
+            // Need for gif to animate on macOS
+            self.animatedImageIndicatorView.imageScaling = .scaleNone
+            self.animatedImageIndicatorView.canDrawSubviewsIntoLayer = true
+        #else
+            animatedImageIndicatorView.contentMode = .center
+            animatedImageIndicatorView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleBottomMargin]
+        #endif
+    }
+    
+    func startAnimatingView() {
+        #if os(macOS)
+            animatedImageIndicatorView.animates = true
+        #else
+            animatedImageIndicatorView.startAnimating()
+        #endif
+        animatedImageIndicatorView.isHidden = false
+    }
+    
+    func stopAnimatingView() {
+        #if os(macOS)
+            animatedImageIndicatorView.animates = false
+        #else
+            animatedImageIndicatorView.stopAnimating()
+        #endif
+        animatedImageIndicatorView.isHidden = true
+    }
 }

@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     
     private var dataSource = ["smooth 效果", "Mask 效果", "MagicMove 效果", "TikTok 效果"]
     
+    private var session: URLSession?
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: view.bounds, style: .plain)
         tableView.delegate = self
@@ -59,6 +61,7 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tryDownload()
         switch indexPath.row {
         case 0:
             navigationController?.pushVC(SmoothController(), type: .smooth)
@@ -71,6 +74,47 @@ extension ViewController: UITableViewDelegate {
         default:
             break
         }
+    }
+}
+
+extension ViewController {
+    func tryDownload() {
+        let downloadImageQueue = OperationQueue()
+        downloadImageQueue.maxConcurrentOperationCount = 6
+        downloadImageQueue.name = "com.season.zhu.downloadImageQueue"
+        let url = URL.init(string: "https://dssp.dstsp.com/ow/static/manual/usermanual.pdf")!
+        let sessionConfiguration = URLSessionConfiguration.default
+        sessionConfiguration.timeoutIntervalForRequest = 15.0
+        session = URLSession.init(configuration: sessionConfiguration, delegate: self, delegateQueue: downloadImageQueue)
+        let downloadTask = session!.downloadTask(with: URLRequest(url: url))
+        downloadTask.resume()
+        
+        if session!.delegateQueue == .main {
+            print("在主线程")
+        }else {
+            print("不在主线程")
+        }
+    }
+}
+
+extension ViewController: URLSessionDownloadDelegate {
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        guard let data = try? Data(contentsOf: location) else {
+            return
+        }
+        
+        print("data: \(data.count)")
+        
+        self.session?.invalidateAndCancel()
+        self.session = nil
+    }
+    
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+        print("image download currentLength:\(bytesWritten), totalLength:\(totalBytesExpectedToWrite)")
+    }
+    
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        print("didCompleteWithError: \(String(describing: error))")
     }
 }
 

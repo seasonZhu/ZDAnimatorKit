@@ -175,7 +175,6 @@ class ImageCache {
         }
     }
     
-    //TODO:- 从缓存中获取数据
     @discardableResult
     open func retrieveImage(forKey key: String,
                             options: KingfisherOptionsInfo?,
@@ -200,25 +199,53 @@ class ImageCache {
         }else {
             var sSelf: ImageCache! = self
             block = DispatchWorkItem(block: {
-                // TODO: -processor
+                if let image = sSelf.retrieveImageInDiskCache(forKey: key, options: options) {
+                    if options.backgroundDecode {
+                        let result = image.kf.decoded
+                        
+                        sSelf.store(result, forKey: key, processorIdentifier: options.processor.identifier, cacheSerializer: options.cacheSerializer, toDisk: false, completionHandler: nil)
+                        
+                        options.callbackDispatchQueue.safeAsync {
+                            completionHandler(imageModifier.modify(result), .memory)
+                            sSelf = nil
+                        }
+                    }else {
+                        sSelf.store(image, forKey: key, processorIdentifier: options.processor.identifier, cacheSerializer: options.cacheSerializer, toDisk: false, completionHandler: nil)
+                        
+                        options.callbackDispatchQueue.safeAsync {
+                            completionHandler(imageModifier.modify(image), .disk)
+                            sSelf = nil
+                        }
+
+                    }
+                }else {
+                    options.callbackDispatchQueue.safeAsync {
+                        completionHandler(nil, .none)
+                        sSelf = nil
+                    }
+                }
             })
+            
+            sSelf.ioQueue.async(execute: block!)
         }
         
-        return nil
+        return block
     }
     
-    //TODO:- 从缓存中获取图片
     func retrieveImageInMemoryCache(forKey key: String, options: KingfisherOptionsInfo? = nil) -> Image? {
         
         let options = options ?? KingfisherEmptyOptionsInfo
-        
-        return nil
+        let computedKey = key.computedKey(with: options.processor.identifier)
+    
+        return memeoryCache.object(forKey: computedKey as NSString) as? Image
     }
     
-    //TODO:- 从从沙盒中获取图片
     func retrieveImageInDiskCache(forKey key: String, options: KingfisherOptionsInfo? = nil) -> Image? {
         
-        return nil
+        let options = options ?? KingfisherEmptyOptionsInfo
+        let computedKey = key.computedKey(with: options.processor.identifier)
+        
+        return diskImage(forComputedKey: computedKey, serializer: options.cacheSerializer, options: options)
     }
     
     //MARK:- 清除内存中的缓存

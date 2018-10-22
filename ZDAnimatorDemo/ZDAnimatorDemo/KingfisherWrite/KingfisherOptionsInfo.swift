@@ -207,7 +207,13 @@ extension Collection where Iterator.Element == KingfisherOptionsInfoItem {
         return NoModifier.default
     }
     
-    //TODO: -processor
+    var processor: ImageProcessor {
+        if let item = lastMatchIgnoringAssociatedValue(.processor(DefaultImageProcessor.default)), case .processor(let processor) = item {
+            return processor
+        }
+        
+        return DefaultImageProcessor.default
+    }
     
     var imageModifier: ImageModifier {
         if let item = lastMatchIgnoringAssociatedValue(.imageModifier(DefaultImageModifier.default)),
