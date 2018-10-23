@@ -10,6 +10,7 @@ import Foundation
 
 struct FormatIndicatedCacheSerializer: CacheSerializer {
     
+    /// 这个地方调用的是结构体的默认构造方法
     static let png = FormatIndicatedCacheSerializer(imageFormat: .PNG)
     static let jpeg = FormatIndicatedCacheSerializer(imageFormat: .JPEG)
     static let gif = FormatIndicatedCacheSerializer(imageFormat: .GIF)
@@ -28,14 +29,12 @@ struct FormatIndicatedCacheSerializer: CacheSerializer {
             }
         }
         
-        // generate data with indicated image format
         if let data = imageData(withFormat: imageFormat) {
             return data
         }
         
         let originalFormat = original?.kf.imageFormat ?? .unknown
         
-        // generate data with original image's format
         if originalFormat != imageFormat, let data = imageData(withFormat: originalFormat) {
             return data
         }
@@ -43,7 +42,6 @@ struct FormatIndicatedCacheSerializer: CacheSerializer {
         return original ?? image.kf.normalized.kf.pngRepresentation()
     }
     
-    /// Same implementation as `DefaultCacheSerializer`.
     func image(with data: Data, options: KingfisherOptionsInfo?) -> Image? {
         let options = options ?? KingfisherEmptyOptionsInfo
         return Kingfisher<Image>.image(

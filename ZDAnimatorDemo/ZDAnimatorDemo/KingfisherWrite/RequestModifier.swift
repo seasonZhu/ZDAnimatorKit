@@ -26,13 +26,12 @@ struct NoModifier: ImageDownloadRequestModifier {
 struct AnyModifier: ImageDownloadRequestModifier {
     
     let block: (URLRequest) -> URLRequest?
+
+    init(modify: @escaping (URLRequest) -> URLRequest?) {
+        block = modify
+    }
     
     func modified(for request: URLRequest) -> URLRequest? {
         return block(request)
-    }
-    
-    
-    init(modify: @escaping (URLRequest) -> URLRequest?) {
-        block = modify
     }
 }

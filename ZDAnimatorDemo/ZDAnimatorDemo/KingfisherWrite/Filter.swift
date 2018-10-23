@@ -68,11 +68,11 @@ struct Filter {
             
             let paramsExposure = [kCIInputEVKey: inputEV]
             #if swift(>=4.0)
-            let blackAndWhite = input.applyingFilter("CIColorControls", parameters: paramsColor)
-            return blackAndWhite.applyingFilter("CIExposureAdjust", parameters: paramsExposure)
+                let blackAndWhite = input.applyingFilter("CIColorControls", parameters: paramsColor)
+                return blackAndWhite.applyingFilter("CIExposureAdjust", parameters: paramsExposure)
             #else
-            let blackAndWhite = input.applyingFilter("CIColorControls", withInputParameters: paramsColor)
-            return blackAndWhite.applyingFilter("CIExposureAdjust", withInputParameters: paramsExposure)
+                let blackAndWhite = input.applyingFilter("CIColorControls", withInputParameters: paramsColor)
+                return blackAndWhite.applyingFilter("CIExposureAdjust", withInputParameters: paramsExposure)
             #endif
         })
     }
@@ -104,9 +104,9 @@ extension Kingfisher where Base: Image {
         }
         
         #if os(macOS)
-        return fixedForRetinaPixel(cgImage: result, to: size)
+            return fixedForRetinaPixel(cgImage: result, to: size)
         #else
-        return Image(cgImage: result, scale: base.scale, orientation: base.imageOrientation)
+            return Image(cgImage: result, scale: base.scale, orientation: base.imageOrientation)
         #endif
     }
 }

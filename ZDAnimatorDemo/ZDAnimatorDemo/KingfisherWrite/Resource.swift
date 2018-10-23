@@ -34,6 +34,4 @@ extension URL: Resource {
     var downloadURL: URL {
         return self
     }
-    
-    
 }

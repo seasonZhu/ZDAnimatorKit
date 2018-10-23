@@ -110,18 +110,18 @@ final class ActivityIndicator: Indicator {
             activityIndicatorView.controlSize = .small
             activityIndicatorView.style = .spinning
         #else
-        #if os(tvOS)
-            let indicatorStyle = UIActivityIndicatorViewStyle.white
-        #else
-            let indicatorStyle = UIActivityIndicatorViewStyle.gray
-        #endif
+            #if os(tvOS)
+                let indicatorStyle = UIActivityIndicatorViewStyle.white
+            #else
+                let indicatorStyle = UIActivityIndicatorViewStyle.gray
+            #endif
             activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle:indicatorStyle)
             activityIndicatorView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin, .flexibleBottomMargin, .flexibleTopMargin]
         #endif
     }
 }
 
-final class ImageIndicator {
+final class ImageIndicator: Indicator {
     private let animatedImageIndicatorView: ImageView
     
     var view: IndicatorView {
@@ -144,7 +144,6 @@ final class ImageIndicator {
         animatedImageIndicatorView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
         
         #if os(macOS)
-            // Need for gif to animate on macOS
             self.animatedImageIndicatorView.imageScaling = .scaleNone
             self.animatedImageIndicatorView.canDrawSubviewsIntoLayer = true
         #else

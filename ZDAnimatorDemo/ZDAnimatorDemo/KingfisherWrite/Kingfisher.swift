@@ -29,6 +29,7 @@ import ImageIO
     #endif
 #endif
 
+/// 这个是一切的基础 以前看总是很神奇 现在看就个就是规定了泛型的类 和我写的泛型装配是一样的 就是说, Kingfisher这个类中 使用了Base这个类
 final class Kingfisher<Base> {
     public let base: Base
     public init(_ base: Base) {
@@ -42,15 +43,17 @@ protocol KingfisherCompatible {
 }
 
 extension KingfisherCompatible {
+    /// 这个地方的Self其实是一个很奇怪的感觉, Self的意思是遵守了KingfisherCompatible这个协议的源类型 而return中的方法是 其实是Kingfisher的init方法
     var kf: Kingfisher<Self> {
         return Kingfisher(self)
     }
 }
 
 extension Image: KingfisherCompatible {}
+
 #if !os(watchOS)
-extension ImageView: KingfisherCompatible { }
-extension Button: KingfisherCompatible { }
+    extension ImageView: KingfisherCompatible { }
+    extension Button: KingfisherCompatible { }
 #else
-extension WKInterfaceImage: KingfisherCompatible { }
+    extension WKInterfaceImage: KingfisherCompatible { }
 #endif

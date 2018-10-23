@@ -468,7 +468,7 @@ final class ImageDownloaderSessionHandler: NSObject, URLSessionDataDelegate, Aut
                         callbackQueue.safeAsync { completionHandler?(finalImage, nil, url, data) }
                     }
                 }else {
-                    if let res = task.response {
+                    if let res = task.response as? HTTPURLResponse, res.statusCode == 304 {
                         let notModified = NSError(domain: KingfisherErrorDomain, code: KingfisherError.notModified.rawValue, userInfo: nil)
                         completionHandler?(nil, notModified, url, nil)
                         continue

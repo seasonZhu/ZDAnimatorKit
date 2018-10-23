@@ -27,6 +27,9 @@
 		61159F9B2179A6B20083510C /* ImagePrefetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F9A2179A6B20083510C /* ImagePrefetcher.swift */; };
 		61159F9D2179A9FE0083510C /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F9C2179A9FE0083510C /* ImageProcessor.swift */; };
 		61159F9F2179AA150083510C /* ImageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F9E2179AA150083510C /* ImageTransition.swift */; };
+		61159FA1217DB02C0083510C /* ImageView+Kingfier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159FA0217DB02C0083510C /* ImageView+Kingfier.swift */; };
+		61159FA3217DB0460083510C /* UIButton+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159FA2217DB0460083510C /* UIButton+Kingfisher.swift */; };
+		61159FA5217DC23A0083510C /* AnimatedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159FA4217DC23A0083510C /* AnimatedImageView.swift */; };
 		61B0C72A2122ACFA00EA827B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B0C7292122ACFA00EA827B /* AppDelegate.swift */; };
 		61B0C72C2122ACFA00EA827B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B0C72B2122ACFA00EA827B /* ViewController.swift */; };
 		61B0C72F2122ACFB00EA827B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61B0C72D2122ACFB00EA827B /* Main.storyboard */; };
@@ -69,6 +72,9 @@
 		61159F9A2179A6B20083510C /* ImagePrefetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePrefetcher.swift; sourceTree = "<group>"; };
 		61159F9C2179A9FE0083510C /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
 		61159F9E2179AA150083510C /* ImageTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTransition.swift; sourceTree = "<group>"; };
+		61159FA0217DB02C0083510C /* ImageView+Kingfier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+Kingfier.swift"; sourceTree = "<group>"; };
+		61159FA2217DB0460083510C /* UIButton+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Kingfisher.swift"; sourceTree = "<group>"; };
+		61159FA4217DC23A0083510C /* AnimatedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedImageView.swift; sourceTree = "<group>"; };
 		61B0C7262122ACFA00EA827B /* ZDAnimatorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZDAnimatorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61B0C7292122ACFA00EA827B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61B0C72B2122ACFA00EA827B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +132,9 @@
 				61159F9A2179A6B20083510C /* ImagePrefetcher.swift */,
 				61159F9C2179A9FE0083510C /* ImageProcessor.swift */,
 				61159F9E2179AA150083510C /* ImageTransition.swift */,
+				61159FA0217DB02C0083510C /* ImageView+Kingfier.swift */,
+				61159FA2217DB0460083510C /* UIButton+Kingfisher.swift */,
+				61159FA4217DC23A0083510C /* AnimatedImageView.swift */,
 			);
 			path = KingfisherWrite;
 			sourceTree = "<group>";
@@ -254,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61159F7D2178155E0083510C /* ThreadHelper.swift in Sources */,
+				61159FA1217DB02C0083510C /* ImageView+Kingfier.swift in Sources */,
 				61159F9321785D1C0083510C /* FormatIndicatedCacheSerializer.swift in Sources */,
 				61B0C74B2122AD2900EA827B /* AnimationTransitionConfig.swift in Sources */,
 				61159F9B2179A6B20083510C /* ImagePrefetcher.swift in Sources */,
@@ -266,6 +276,7 @@
 				61159F9F2179AA150083510C /* ImageTransition.swift in Sources */,
 				61159F8721781BEE0083510C /* Indicator.swift in Sources */,
 				61159F812178165C0083510C /* Resource.swift in Sources */,
+				61159FA5217DC23A0083510C /* AnimatedImageView.swift in Sources */,
 				61159F79217813120083510C /* Kingfisher.swift in Sources */,
 				61B0C72C2122ACFA00EA827B /* ViewController.swift in Sources */,
 				61B0C7512122B3FA00EA827B /* SmoothController.swift in Sources */,
@@ -287,6 +298,7 @@
 				61159F95217871B90083510C /* ImageDownloader.swift in Sources */,
 				61B0C72A2122ACFA00EA827B /* AppDelegate.swift in Sources */,
 				61159F9D2179A9FE0083510C /* ImageProcessor.swift in Sources */,
+				61159FA3217DB0460083510C /* UIButton+Kingfisher.swift in Sources */,
 				61159F85217819440083510C /* Placeholder.swift in Sources */,
 				61B0C7472122AD2900EA827B /* AnimationMagicMoveEffect.swift in Sources */,
 			);

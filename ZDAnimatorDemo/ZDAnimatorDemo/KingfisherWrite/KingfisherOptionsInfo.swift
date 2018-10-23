@@ -66,7 +66,7 @@ precedencegroup ItemComparisonPrecedence {
 
 infix operator <== : ItemComparisonPrecedence
 
-///  只有左右类型相同才返回真
+///  只有左右类型相同才返回真 这个只是一种变相的判断而已 更需要注意的是运算符如何注释出来的
 func <== (lhs: KingfisherOptionsInfoItem, rhs: KingfisherOptionsInfoItem) -> Bool {
     switch (lhs, rhs) {
     case (.targetCache(_), .targetCache(_)): return true
@@ -95,17 +95,34 @@ func <== (lhs: KingfisherOptionsInfoItem, rhs: KingfisherOptionsInfoItem) -> Boo
 }
 // FIXME: -重点学习
 extension Collection where Iterator.Element == KingfisherOptionsInfoItem {
+    
+    /// 匹配忽略关联值 直接翻译的?
+    ///
+    /// - Parameter target: 目标
+    /// - Returns: 返回数组中最后一次出现该目标的元素
     func lastMatchIgnoringAssociatedValue(_ target: Iterator.Element) -> Iterator.Element? {
-        //  这里应该是可选类型的map
-        return reversed().first { $0 <== target }
+        //  这里不是可选类型的map 而是 数组筛选,将第一个符合条件的元素找出来
+
+        //  因为是找最后一次的目标 而数组中只有 找第一个符合要求的元素 所以倒叙一把
+        return reversed().first(where: { (item) -> Bool in
+            return item <== target
+        })
+        //return reversed().first { $0 <== target }
+        
     }
     
     //  筛选出与target不同的选项
     func removeAllMatchesIgnoringAssociatedValue(_ target: Iterator.Element) -> [Iterator.Element] {
-        return filter { !($0 <== target) }
+        
+        return filter({ (item) -> Bool in
+            return !(item <== target)
+        })
+        
+        //return filter { !($0 <== target) }
     }
 }
 
+// MARK: - 这个分类有点意思 其实它就是一个确切数组的只读计算属性 将数组某个定向元素的计算属性得到
 extension Collection where Iterator.Element == KingfisherOptionsInfoItem {
     var targetCache: ImageCache {
         if let item = lastMatchIgnoringAssociatedValue(.targetCache(.default)),
@@ -176,10 +193,6 @@ extension Collection where Iterator.Element == KingfisherOptionsInfoItem {
         return contains{ $0 <== .backgroundDecode }
     }
     
-    var preloadAllAnimationData: Bool {
-        return contains { $0 <== .preloadAllAnimationData }
-    }
-    
     var callbackDispatchQueue: DispatchQueue {
         if let item = lastMatchIgnoringAssociatedValue(.callbackDispatchQueue(nil)),
             case .callbackDispatchQueue(let queue) = item
@@ -196,6 +209,10 @@ extension Collection where Iterator.Element == KingfisherOptionsInfoItem {
             return scale
         }
         return 1.0
+    }
+    
+    var preloadAllAnimationData: Bool {
+        return contains { $0 <== .preloadAllAnimationData }
     }
     
     var modifier: ImageDownloadRequestModifier {
@@ -215,15 +232,6 @@ extension Collection where Iterator.Element == KingfisherOptionsInfoItem {
         return DefaultImageProcessor.default
     }
     
-    var imageModifier: ImageModifier {
-        if let item = lastMatchIgnoringAssociatedValue(.imageModifier(DefaultImageModifier.default)),
-            case .imageModifier(let imageModifier) = item
-        {
-            return imageModifier
-        }
-        return DefaultImageModifier.default
-    }
-    
     var cacheSerializer: CacheSerializer {
         if let item = lastMatchIgnoringAssociatedValue(.cacheSerializer(DefaultCacheSerializer.default)),
             case .cacheSerializer(let cacheSerializer) = item
@@ -231,6 +239,15 @@ extension Collection where Iterator.Element == KingfisherOptionsInfoItem {
             return cacheSerializer
         }
         return DefaultCacheSerializer.default
+    }
+    
+    var imageModifier: ImageModifier {
+        if let item = lastMatchIgnoringAssociatedValue(.imageModifier(DefaultImageModifier.default)),
+            case .imageModifier(let imageModifier) = item
+        {
+            return imageModifier
+        }
+        return DefaultImageModifier.default
     }
     
     var keepCurrentImageWhileLoading: Bool {
