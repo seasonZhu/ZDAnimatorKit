@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+@objc extension ImageView {
+    func shouldPreloadAllAnimation() -> Bool { return true }
+}

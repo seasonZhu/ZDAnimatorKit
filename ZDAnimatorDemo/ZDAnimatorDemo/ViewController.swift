@@ -35,6 +35,9 @@ class ViewController: UIViewController {
         
         title = "自定义转场动画"
         view.addSubview(tableView)
+        
+        let string = dataSource[safe: 1]
+        print(string)
     }
     
     override func viewWillAppear(_ animated: Bool) {

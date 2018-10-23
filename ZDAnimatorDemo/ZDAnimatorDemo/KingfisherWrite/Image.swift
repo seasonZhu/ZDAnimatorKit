@@ -107,11 +107,6 @@ extension Kingfisher where Base: Image {
         return Image(cgImage: cgImage, size: CGSize.zero)
     }
     
-    /**
-     Normalize the image. This method does nothing in OS X.
-     
-     - returns: The image itself.
-     */
     public var normalized: Image {
         return base
     }
@@ -119,6 +114,7 @@ extension Kingfisher where Base: Image {
     static func animated(with images: [Image], forDuration forDurationduration: TimeInterval) -> Image? {
         return nil
     }
+    
     #else
     static func image(cgImage: CGImage, scale: CGFloat, refImage: Image?) -> Image {
         if let refImage = refImage {
