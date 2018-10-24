@@ -35,9 +35,6 @@ class ViewController: UIViewController {
         
         title = "自定义转场动画"
         view.addSubview(tableView)
-        
-        let string = dataSource[safe: 1]
-        print(string)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -100,6 +97,26 @@ extension ViewController {
     }
 }
 
+extension ViewController {
+    func kingfisherOptionsInfoMethon() {
+        let options: KingfisherOptionsInfo = [.forceRefresh, .preloadAllAnimationData, .downloadPriority(5), .callbackDispatchQueue(DispatchQueue.main)]
+        
+        let a = options.callbackDispatchQueue
+        
+        let b = options.downloadPriority
+        
+        let c =  options.contains { (item) -> Bool in
+            let result = item <== .forceRefresh
+            return result
+        }
+        
+        let image = UIImage()
+        //_ = image.jpegData(compressionQuality: 1) 为什么要封这个方法 我没懂
+        
+        print(a, b, c)
+    }
+}
+
 extension ViewController: URLSessionDownloadDelegate {
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         guard let data = try? Data(contentsOf: location) else {
@@ -123,17 +140,9 @@ extension ViewController: URLSessionDownloadDelegate {
 
 struct A: OptionSet {
     
-    let rawValue: UInt
+    let rawValue: Int
     
-    init(rawValue: A.RawValue) {
+    init(rawValue: Int) {
         self.rawValue = rawValue
-        
-        let array: NSArray = [1, 2, 3]
-        
-        array.enumerateObjects { (num, index, stop) in
-            if index == 2 {
-                stop.pointee = true
-            }
-        }
     }
 }

@@ -135,7 +135,7 @@ extension Kingfisher where Base: Image {
     }
     
     static func animated(with images: [Image], forDuration duration: TimeInterval) -> Image? {
-        return .animatedImage(with: images, duration: duration)
+        return Base.animatedImage(with: images, duration: duration)
     }
     #endif
 }
@@ -296,6 +296,7 @@ extension Kingfisher where Base: Image {
 
 // MARK: - 图片转换
 extension Kingfisher where Base: Image {
+    
     //MARK:- Blend Mode
     #if !os(macOS)
     func image(withBlendModel blendModel: CGBlendMode, alpha: CGFloat = 1.0, backgroundColor: Color? = nil) -> Image {
@@ -429,6 +430,8 @@ extension Kingfisher where Base: Image {
     
     //MARK:- Resize
     #if os(iOS) || os(tvOS)
+    
+    /// 通过系统枚举压缩图片尺寸
     func resize(to size: CGSize, for contentMode: UIViewContentMode)  -> Image {
         switch contentMode {
         case .scaleAspectFit:
@@ -441,6 +444,7 @@ extension Kingfisher where Base: Image {
     }
     #endif
     
+    /// 压缩图片尺寸
     func resize(to size: CGSize) -> Image {
         guard let cgImage = cgImage else {
             assertionFailure("[Kingfisher] Resize only works for CG-based image.")
@@ -458,6 +462,7 @@ extension Kingfisher where Base: Image {
         }
     }
     
+    /// 通过自定义枚举压缩图片尺寸
     func resize(to size: CGSize, for contentMode: ContentMode) -> Image {
         switch contentMode {
         case .aspectFit:
@@ -471,6 +476,7 @@ extension Kingfisher where Base: Image {
         }
     }
     
+    /// 切割图片
     func crop(to size: CGSize, anchorOn anchor: CGPoint) -> Image {
         guard let cgImage = cgImage else {
             assertionFailure("[Kingfisher] Crop only works for CG-based image.")
@@ -617,7 +623,7 @@ extension Kingfisher where Base: Image {
         let rect = CGRect(x: 0, y: 0, width: CGFloat(imageRef.width), height: CGFloat(imageRef.height))
         context.draw(imageRef, in: rect)
         let decompressedImageRef = context.makeImage()
-        //WARNING: 警告 这个地方没有写完!!
+        
         return Kingfisher<Image>.image(cgImage: decompressedImageRef!, scale: scale, refImage: base)
     }
 }
@@ -649,7 +655,7 @@ struct DataProxy {
     }
 }
 
-extension Data:KingfisherCompatible {
+extension Data: KingfisherCompatible {
     typealias CompatibleType = DataProxy
     
     var kf: DataProxy {

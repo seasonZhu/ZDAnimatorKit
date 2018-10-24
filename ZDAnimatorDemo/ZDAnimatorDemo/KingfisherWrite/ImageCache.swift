@@ -77,6 +77,7 @@ class ImageCache {
         
         diskCachePath = diskCachePathCloure(path, cacheName)
         
+        //FIXME: 两个队列是什么队列呢!!!
         let ioQueueName = "com.onevcat.Kingfisher.ImageCache.ioQueue.\(name)"
         ioQueue = DispatchQueue(label: ioQueueName)
         
@@ -112,6 +113,7 @@ class ImageCache {
         let computedKey = key.computedKey(with: identifier)
         memeoryCache.setObject(image, forKey: computedKey as NSString)
         
+        // 主线程进行回调
         func callHandlerInMainQueue() {
             if let handle = completionHandler {
                 DispatchQueue.main.async {
@@ -125,12 +127,13 @@ class ImageCache {
                 if let data = serializer.data(with: image, original: original) {
                     if !self.fileManager.fileExists(atPath: self.diskCachePath) {
                         do {
+                            //  创建路径
                             try self.fileManager.createDirectory(atPath: self.diskCachePath, withIntermediateDirectories: true, attributes: nil)
                         }catch _ {
                             
                         }
                     }
-                    
+                    //  这个地方的self.cachePath(forKey: computedKey)创建的文件名可能是.../.../md5 或者是 .../.../md5.pathExtension
                     self.fileManager.createFile(atPath: self.cachePath(forKey: computedKey), contents: data, attributes: nil)
                 }
                 callHandlerInMainQueue()
@@ -197,9 +200,11 @@ class ImageCache {
                 completionHandler(nil, .none)
             }
         }else {
+            //FIXEME: 这个地方来个var sSelf: ImageCache! = self我初看感觉很疑惑 其实主要目的是为了变为可选类型 保证回调之后可以设置为nil
             var sSelf: ImageCache! = self
             block = DispatchWorkItem(block: {
                 if let image = sSelf.retrieveImageInDiskCache(forKey: key, options: options) {
+                    /// 后台解码 其实是对图片进行重新绘制
                     if options.backgroundDecode {
                         let result = image.kf.decoded
                         
@@ -254,7 +259,7 @@ class ImageCache {
     }
 
     //MARK:- 清除沙盒中的缓存
-    func clearDiskCache(completion handler: (()->())? = nil) {
+    func clearDiskCache(completion handler: (() -> ())? = nil) {
         ioQueue.async {
             do {
                 try self.fileManager.removeItem(atPath: self.diskCachePath)
@@ -332,6 +337,7 @@ class ImageCache {
         }
     }
     
+    //FIXME: 重点学习
     //MARK:- 遍历缓存文件
     private func travelCachedFiles(onlyForCacheSize: Bool) -> (urlsToDelete: [URL], diskCacheSize: UInt, cachedFiles: [URL: URLResourceValues]) {
         let diskCacheURL = URL(fileURLWithPath: diskCachePath)
@@ -406,7 +412,7 @@ class ImageCache {
         
         var diskCached = false
         
-        //  串行队列 干完了个事才能继续往下走
+        //  同步处理 干完了个事才能继续往下走
         ioQueue.sync {
             diskCached = fileManager.fileExists(atPath: filePath)
         }
@@ -418,7 +424,7 @@ class ImageCache {
         return .none
     }
     
-    //MARK:- key取hash值
+    //MARK:- 通过key获取文件缓存名称
     func hash(forKey key: String, processorIdentifier identifier: String = "") -> String {
         let computedKey = key.computedKey(with: identifier)
         return cacheFileName(forComputedKey: computedKey)
@@ -426,6 +432,7 @@ class ImageCache {
     
     //MARK:- 获取沙盒的缓存大小 callback回调是因为计算文件大小是异步进行的
     func calculateDiskCacheSize(completion handler: @escaping ((_ size: UInt) -> Void)) {
+        //  异步处理 计算缓存大小
         ioQueue.async {
             let (_, diskCacheSize, _) = self.travelCachedFiles(onlyForCacheSize: true)
             DispatchQueue.main.async {
@@ -481,6 +488,10 @@ extension Kingfisher where Base: Image {
 extension Dictionary {
     func keysSortedByValue(_ isOrderedBefore: (Value, Value) -> Bool) -> [Key] {
         return Array(self).sorted{ isOrderedBefore($0.1, $1.1) }.map{ $0.0 }
+    }
+    
+    func tuplesSortedByValue(_ isOrderedBefore: (Value, Value) -> Bool) -> [(Key, Value)] {
+        return Array(self).sorted{ isOrderedBefore($0.1, $1.1) }.map{ $0 }
     }
 }
 

@@ -246,7 +246,7 @@ class Animator {
     private var loopCount = 0
     
     var currentFrame: UIImage? {
-        return nil
+        return frame(at: currentFrameIndexInBuffer)
     }
     
     var isReachMaxRepeatCount: Bool {

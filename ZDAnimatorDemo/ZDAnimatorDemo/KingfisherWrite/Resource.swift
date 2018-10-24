@@ -14,7 +14,7 @@ protocol Resource {
     var downloadURL: URL { get }
 }
 
-/// 这个结构体遵守了Resource协议,同时将var改为了let也没有影响
+/// 这个结构体遵守了Resource协议,同时将var改为了let也没有影响, 但是 协议里是不要用let 可以试试
 struct ImageResource: Resource {
     let cacheKey: String
     
