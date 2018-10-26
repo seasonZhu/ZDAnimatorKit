@@ -10,6 +10,30 @@ import Foundation
 
 extension String: KingfisherCompatible { }
 
+// MARK: - 不遵守KingfisherCompatible的写法
+extension String {
+    var md5: String {
+        if let data = self.data(using: .utf8, allowLossyConversion: true) {
+            
+            let message = data.withUnsafeBytes { bytes -> [UInt8] in
+                return Array(UnsafeBufferPointer(start: bytes, count: data.count))
+            }
+            
+            let MD5Calculator = MD5(message)
+            let MD5Data = MD5Calculator.calculate()
+            
+            var MD5String = String()
+            for c in MD5Data {
+                MD5String += String(format: "%02x", c)
+            }
+            return MD5String
+            
+        } else {
+            return self
+        }
+    }
+}
+
 extension Kingfisher where Base == String {
     var md5: String {
         if let data = base.data(using: .utf8, allowLossyConversion: true) {
@@ -32,7 +56,6 @@ extension Kingfisher where Base == String {
         }
     }
 }
-
 
 /** array of bytes, little-endian representation */
 func arrayOfBytes<T>(_ value: T, length: Int? = nil) -> [UInt8] {

@@ -66,7 +66,7 @@ precedencegroup ItemComparisonPrecedence {
 
 infix operator <== : ItemComparisonPrecedence
 
-///  只有左右类型相同才返回真 这个只是一种变相的判断而已 更需要注意的是运算符如何注释出来的
+///  只有左右类型相同才返回真 这个只是一种变相的判断而已 更需要注意的是运算符如何注释出来的 这种运算只能在有穷的枚举情况下才能,一旦数组的个数与类型不确定,就跪了 重在思路
 func <== (lhs: KingfisherOptionsInfoItem, rhs: KingfisherOptionsInfoItem) -> Bool {
     switch (lhs, rhs) {
     case (.targetCache(_), .targetCache(_)): return true

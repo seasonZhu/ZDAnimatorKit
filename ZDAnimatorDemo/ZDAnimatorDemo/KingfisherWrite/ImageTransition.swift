@@ -34,7 +34,8 @@ import UIKit
 enum ImageTransition {
     case none
     
-    case fade(TimeInterval)
+    // 这个地方这么写fade(_ time: TimeInterval) 这么写fade(time: TimeInterval)都是可以 只是多了一个一个参数细节表示说明参数 不用也是可以的
+    case fade(_ time: TimeInterval)
     
     case flipFromLeft(TimeInterval)
     
@@ -49,6 +50,8 @@ enum ImageTransition {
                 animations: ((UIImageView, UIImage) -> Void)?,
                 completion: ((Bool) -> Void)?)
     
+    
+    /// 这个地方的本质其实还是只读计算属性,下面的也是这个意思
     var duration: TimeInterval {
         switch self {
         case .none:                          return 0

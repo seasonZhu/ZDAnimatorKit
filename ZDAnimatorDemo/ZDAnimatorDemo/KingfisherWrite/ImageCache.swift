@@ -67,6 +67,7 @@ class ImageCache {
     }
     
     //MARK:- 初始化方法
+    //  注意看ImageCache.defaultDiskCachePathClosure 它是一个函数 它的类型是(String?, String) -> String 并且 有具体的实现!!!
     init(name: String, path: String? = nil, diskCachePathCloure: DiskCachePathClosure = ImageCache.defaultDiskCachePathClosure ) {
         if name.isEmpty {
             fatalError("[Kingfisher] You should specify a name for the cache. A cache with empty name is not permitted.")

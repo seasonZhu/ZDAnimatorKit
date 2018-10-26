@@ -246,6 +246,7 @@ class ImageDownloader {
 
 // FIXME: -重点学习
 extension ImageDownloader {
+    //MARK:- 创建下载任务
     func setup(progressBlock: ImageDownloaderProgressBlock?, with completionHandler: ImageDownloaderCompletionHandler?, for url: URL, options: KingfisherOptionsInfo?, started: @escaping ((URLSession, ImageFetchLoad) -> Void)) {
         func prepareFetchLoad() {
             barrierQueue.sync(flags: .barrier) {
@@ -275,6 +276,7 @@ extension ImageDownloader {
         }
     }
     
+    //MARK:- 取消下载任务
     private func cancelTaskImpl(_ task: RetrieveImageDownloadTask, fetchLoad: ImageFetchLoad? = nil, ignoreTaskCount: Bool = false) {
         func getFetchLoad(from task: RetrieveImageDownloadTask) -> ImageFetchLoad? {
             guard let URL = task.internalTask.originalRequest?.url, let imageFetchLoad = self.fetchLoads[URL] else {

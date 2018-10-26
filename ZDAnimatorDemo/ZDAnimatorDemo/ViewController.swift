@@ -35,6 +35,15 @@ class ViewController: UIViewController {
         
         title = "自定义转场动画"
         view.addSubview(tableView)
+        let md5 = "www.hao123.com".md5
+        let kfMd5 = "www.hao123.com".kf.md5
+        if md5 == kfMd5 {
+            print("md5取值相等")
+        }else {
+            print("md5取值不相等")
+        }
+        
+        requestTypeFunction()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -144,5 +153,54 @@ struct A: OptionSet {
     
     init(rawValue: Int) {
         self.rawValue = rawValue
+    }
+}
+
+
+/// 编写了一个网络请求返回的枚举用于DSSP 这里只是思路
+///
+/// - success: <#success description#>
+/// - : <# description#>
+enum NetworkRequestType: Int {
+    case success = 200,
+         created = 201,
+         detelet_success = 204,
+         not_modified = 304,
+         bad_request = 400,
+         unathorized = 403,
+         not_found = 404,
+         service_error = 500
+}
+
+extension NetworkRequestType: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .success:
+            return "请求成功"
+        case .created:
+            return "创建成功"
+        case .detelet_success:
+            return "删除成功"
+        case .not_modified:
+            return "数据无更改(返回缓存数据)"
+        case .bad_request:
+            return "请求错误"
+        case .unathorized:
+            return "认证失败"
+        case .not_found:
+            return "找不到资源"
+        case .service_error:
+            return "服务器错误"
+        }
+    }
+}
+
+extension ViewController {
+    func requestTypeFunction() {
+        let requestType = NetworkRequestType.not_found
+        
+        if (300 ... 500).contains(requestType.rawValue) {
+            print(requestType)
+        }
     }
 }
