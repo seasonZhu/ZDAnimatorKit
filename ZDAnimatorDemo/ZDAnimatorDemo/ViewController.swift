@@ -44,6 +44,30 @@ class ViewController: UIViewController {
         }
         
         requestTypeFunction()
+        
+        ///  多个target中的区分
+        #if DEMO
+        print("DEMO")
+            #if DEBUG
+            print("DEMO DEBUG")
+            #elseif DEVELOPER
+            print("DEMO DEVELOPER")
+            #else
+            print("DEMO RELEASE")
+            #endif
+        #elseif COPY
+        print("COPY")
+            #if DEBUG
+            print("COPY DEBUG")
+            #elseif DEVELOPER
+            print("COPY DEVELOPER")
+            #else
+            print("COPY RELEASE")
+        #endif
+        #else
+        
+        #endif
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
