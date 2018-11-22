@@ -91,6 +91,12 @@
 		61B0C7532122B6A900EA827B /* MaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B0C7522122B6A900EA827B /* MaskController.swift */; };
 		61B0C7552122C0D700EA827B /* MagicMoveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B0C7542122C0D700EA827B /* MagicMoveController.swift */; };
 		61B0C7572122C68F00EA827B /* TikTokControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B0C7562122C68F00EA827B /* TikTokControll.swift */; };
+		61F4CC3C21A656AF0053195B /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F4CC3B21A656AF0053195B /* DispatchQueue+Alamofire.swift */; };
+		61F4CC3E21A657E70053195B /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F4CC3D21A657E70053195B /* Notifications.swift */; };
+		61F4CC4021A658C60053195B /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F4CC3F21A658C60053195B /* Timeline.swift */; };
+		61F4CC4221A65BCB0053195B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F4CC4121A65BCB0053195B /* Result.swift */; };
+		61F4CC4421A684E00053195B /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F4CC4321A684E00053195B /* NetworkReachabilityManager.swift */; };
+		61F4CC4621A691F00053195B /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F4CC4521A691F00053195B /* AFError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -141,6 +147,12 @@
 		61B0C7522122B6A900EA827B /* MaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskController.swift; sourceTree = "<group>"; };
 		61B0C7542122C0D700EA827B /* MagicMoveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicMoveController.swift; sourceTree = "<group>"; };
 		61B0C7562122C68F00EA827B /* TikTokControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTokControll.swift; sourceTree = "<group>"; };
+		61F4CC3B21A656AF0053195B /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
+		61F4CC3D21A657E70053195B /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		61F4CC3F21A658C60053195B /* Timeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
+		61F4CC4121A65BCB0053195B /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		61F4CC4321A684E00053195B /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		61F4CC4521A691F00053195B /* AFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +225,7 @@
 		61B0C7282122ACFA00EA827B /* ZDAnimatorDemo */ = {
 			isa = PBXGroup;
 			children = (
+				61F4CC3A21A6554C0053195B /* AlamofireWrite */,
 				61159F77217812CE0083510C /* KingfisherWrite */,
 				61B0C73B2122AD2900EA827B /* ZDAnimatorKit */,
 				61B0C7292122ACFA00EA827B /* AppDelegate.swift */,
@@ -244,6 +257,19 @@
 				61B0C7412122AD2900EA827B /* AnimationTikTokEffect.swift */,
 			);
 			path = ZDAnimatorKit;
+			sourceTree = "<group>";
+		};
+		61F4CC3A21A6554C0053195B /* AlamofireWrite */ = {
+			isa = PBXGroup;
+			children = (
+				61F4CC3B21A656AF0053195B /* DispatchQueue+Alamofire.swift */,
+				61F4CC3D21A657E70053195B /* Notifications.swift */,
+				61F4CC3F21A658C60053195B /* Timeline.swift */,
+				61F4CC4121A65BCB0053195B /* Result.swift */,
+				61F4CC4321A684E00053195B /* NetworkReachabilityManager.swift */,
+				61F4CC4521A691F00053195B /* AFError.swift */,
+			);
+			path = AlamofireWrite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -393,6 +419,7 @@
 			files = (
 				61159F7D2178155E0083510C /* ThreadHelper.swift in Sources */,
 				61159FA1217DB02C0083510C /* ImageView+Kingfier.swift in Sources */,
+				61F4CC4621A691F00053195B /* AFError.swift in Sources */,
 				61159F9321785D1C0083510C /* FormatIndicatedCacheSerializer.swift in Sources */,
 				61B0C74B2122AD2900EA827B /* AnimationTransitionConfig.swift in Sources */,
 				61159F9B2179A6B20083510C /* ImagePrefetcher.swift in Sources */,
@@ -409,7 +436,9 @@
 				61159F79217813120083510C /* Kingfisher.swift in Sources */,
 				61B0C72C2122ACFA00EA827B /* ViewController.swift in Sources */,
 				61B0C7512122B3FA00EA827B /* SmoothController.swift in Sources */,
+				61F4CC4421A684E00053195B /* NetworkReachabilityManager.swift in Sources */,
 				61159F8D21784FAC0083510C /* ImageCache.swift in Sources */,
+				61F4CC3E21A657E70053195B /* Notifications.swift in Sources */,
 				61159F8921781FE40083510C /* KingfisherOptionsInfo.swift in Sources */,
 				61159F99217966AC0083510C /* KingfisherManager.swift in Sources */,
 				61159F7F217815D10083510C /* Box.swift in Sources */,
@@ -423,12 +452,15 @@
 				61B0C74D2122AD2900EA827B /* UIViewController+AnimationTransition.swift in Sources */,
 				61159F8F217856D10083510C /* CacheSerializer.swift in Sources */,
 				61B0C7482122AD2900EA827B /* AnimationMaskEffect.swift in Sources */,
+				61F4CC3C21A656AF0053195B /* DispatchQueue+Alamofire.swift in Sources */,
 				61B0C74C2122AD2900EA827B /* UINavigationController+AnimationTransition.swift in Sources */,
 				61159F95217871B90083510C /* ImageDownloader.swift in Sources */,
+				61F4CC4021A658C60053195B /* Timeline.swift in Sources */,
 				61B0C72A2122ACFA00EA827B /* AppDelegate.swift in Sources */,
 				61159F9D2179A9FE0083510C /* ImageProcessor.swift in Sources */,
 				61159FA3217DB0460083510C /* UIButton+Kingfisher.swift in Sources */,
 				61159F85217819440083510C /* Placeholder.swift in Sources */,
+				61F4CC4221A65BCB0053195B /* Result.swift in Sources */,
 				61B0C7472122AD2900EA827B /* AnimationMagicMoveEffect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
