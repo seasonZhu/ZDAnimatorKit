@@ -43,7 +43,7 @@ protocol KingfisherCompatible {
 }
 
 extension KingfisherCompatible {
-    /// 这个地方的Self其实是一个很奇怪的感觉, Self的意思是遵守了KingfisherCompatible这个协议的源类型 而return中的方法是 其实是Kingfisher的init方法
+    /// 这个地方的Self其实是一个很奇怪的感觉, Self的意思是遵守了KingfisherCompatible这个协议的源类型 而return中的方法是 其实是Kingfisher的init方法 Kingfisher(self)其实就是实例化一个类型为Self的对象,传入的参数的Self类的对象
     var kf: Kingfisher<Self> {
         return Kingfisher(self)
     }
