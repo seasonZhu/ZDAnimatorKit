@@ -15,7 +15,7 @@ import UIKit
 #endif
 
 extension Kingfisher where Base: ImageView {
-    
+    @discardableResult
     func setImage(with resource: Resource?,
                   placeholder: Placeholder? = nil,
                   options: KingfisherOptionsInfo? = nil,

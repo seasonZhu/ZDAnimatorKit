@@ -49,7 +49,9 @@ extension KingfisherCompatible {
     }
 }
 
-extension Image: KingfisherCompatible {}
+extension Image: KingfisherCompatible {
+    //typealias CompatibleType = Kingfisher<Image> 这个地方其实隐式的做了这样的类型赋值
+}
 
 #if !os(watchOS)
     extension ImageView: KingfisherCompatible { }
