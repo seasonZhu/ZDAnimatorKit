@@ -61,3 +61,13 @@ extension URLComponents: URLConvertible {
         return url
     }
 }
+
+public protocol URLRequsetConvertible {
+    func asURLRequest() throws -> URLRequest
+}
+
+extension URLRequsetConvertible {
+    public var urlRequest: URLRequest? {
+        return try? asURLRequest()
+    }
+}

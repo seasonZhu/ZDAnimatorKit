@@ -30,6 +30,8 @@
 		61159FA1217DB02C0083510C /* ImageView+Kingfier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159FA0217DB02C0083510C /* ImageView+Kingfier.swift */; };
 		61159FA3217DB0460083510C /* UIButton+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159FA2217DB0460083510C /* UIButton+Kingfisher.swift */; };
 		61159FA5217DC23A0083510C /* AnimatedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159FA4217DC23A0083510C /* AnimatedImageView.swift */; };
+		6131AF4B21AB95B900A3C9A6 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6131AF4A21AB95B900A3C9A6 /* ParameterEncoding.swift */; };
+		6131AF4D21ABC4E100A3C9A6 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6131AF4C21ABC4E100A3C9A6 /* MultipartFormData.swift */; };
 		616DC50021830BA2000BCB8C /* ThreadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F7C2178155E0083510C /* ThreadHelper.swift */; };
 		616DC50121830BA2000BCB8C /* ImageView+Kingfier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159FA0217DB02C0083510C /* ImageView+Kingfier.swift */; };
 		616DC50221830BA2000BCB8C /* FormatIndicatedCacheSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F9221785D1C0083510C /* FormatIndicatedCacheSerializer.swift */; };
@@ -124,6 +126,8 @@
 		61159FA0217DB02C0083510C /* ImageView+Kingfier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+Kingfier.swift"; sourceTree = "<group>"; };
 		61159FA2217DB0460083510C /* UIButton+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Kingfisher.swift"; sourceTree = "<group>"; };
 		61159FA4217DC23A0083510C /* AnimatedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedImageView.swift; sourceTree = "<group>"; };
+		6131AF4A21AB95B900A3C9A6 /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		6131AF4C21ABC4E100A3C9A6 /* MultipartFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormData.swift; sourceTree = "<group>"; };
 		616DC4FB218308B3000BCB8C /* ZDAnimatorDemo copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ZDAnimatorDemo copy-Info.plist"; path = "/Users/season/Desktop/ZDAnimatorKit/ZDAnimatorDemo/ZDAnimatorDemo copy-Info.plist"; sourceTree = "<absolute>"; };
 		616DC53021830BA2000BCB8C /* ZDAnimatorDemo copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZDAnimatorDemo copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		616DC53121830BA2000BCB8C /* ZDAnimatorDemo copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ZDAnimatorDemo copy2-Info.plist"; path = "/Users/season/Desktop/ZDAnimatorKit/ZDAnimatorDemo/ZDAnimatorDemo copy2-Info.plist"; sourceTree = "<absolute>"; };
@@ -271,6 +275,8 @@
 				61F4CC4321A684E00053195B /* NetworkReachabilityManager.swift */,
 				61F4CC4521A691F00053195B /* AFError.swift */,
 				61F4CC4A21A78EF00053195B /* Alamofire.swift */,
+				6131AF4A21AB95B900A3C9A6 /* ParameterEncoding.swift */,
+				6131AF4C21ABC4E100A3C9A6 /* MultipartFormData.swift */,
 			);
 			path = AlamofireWrite;
 			sourceTree = "<group>";
@@ -438,6 +444,7 @@
 				61159F812178165C0083510C /* Resource.swift in Sources */,
 				61159FA5217DC23A0083510C /* AnimatedImageView.swift in Sources */,
 				61159F79217813120083510C /* Kingfisher.swift in Sources */,
+				6131AF4D21ABC4E100A3C9A6 /* MultipartFormData.swift in Sources */,
 				61B0C72C2122ACFA00EA827B /* ViewController.swift in Sources */,
 				61B0C7512122B3FA00EA827B /* SmoothController.swift in Sources */,
 				61F4CC4421A684E00053195B /* NetworkReachabilityManager.swift in Sources */,
@@ -455,6 +462,7 @@
 				61159F8B217820CD0083510C /* Image.swift in Sources */,
 				61B0C74D2122AD2900EA827B /* UIViewController+AnimationTransition.swift in Sources */,
 				61159F8F217856D10083510C /* CacheSerializer.swift in Sources */,
+				6131AF4B21AB95B900A3C9A6 /* ParameterEncoding.swift in Sources */,
 				61B0C7482122AD2900EA827B /* AnimationMaskEffect.swift in Sources */,
 				61F4CC3C21A656AF0053195B /* DispatchQueue+Alamofire.swift in Sources */,
 				61B0C74C2122AD2900EA827B /* UINavigationController+AnimationTransition.swift in Sources */,
