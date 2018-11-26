@@ -97,6 +97,7 @@
 		61F4CC4221A65BCB0053195B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F4CC4121A65BCB0053195B /* Result.swift */; };
 		61F4CC4421A684E00053195B /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F4CC4321A684E00053195B /* NetworkReachabilityManager.swift */; };
 		61F4CC4621A691F00053195B /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F4CC4521A691F00053195B /* AFError.swift */; };
+		61F4CC4B21A78EF00053195B /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F4CC4A21A78EF00053195B /* Alamofire.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,6 +154,7 @@
 		61F4CC4121A65BCB0053195B /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		61F4CC4321A684E00053195B /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		61F4CC4521A691F00053195B /* AFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFError.swift; sourceTree = "<group>"; };
+		61F4CC4A21A78EF00053195B /* Alamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +270,7 @@
 				61F4CC4121A65BCB0053195B /* Result.swift */,
 				61F4CC4321A684E00053195B /* NetworkReachabilityManager.swift */,
 				61F4CC4521A691F00053195B /* AFError.swift */,
+				61F4CC4A21A78EF00053195B /* Alamofire.swift */,
 			);
 			path = AlamofireWrite;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61F4CC4B21A78EF00053195B /* Alamofire.swift in Sources */,
 				61159F7D2178155E0083510C /* ThreadHelper.swift in Sources */,
 				61159FA1217DB02C0083510C /* ImageView+Kingfier.swift in Sources */,
 				61F4CC4621A691F00053195B /* AFError.swift in Sources */,

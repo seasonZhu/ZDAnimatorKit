@@ -67,7 +67,13 @@ class ViewController: UIViewController {
         #else
         
         #endif
-
+        
+        do {
+            let result = try title!.asURL()
+            print(result)
+        } catch let error {
+            print(error)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
