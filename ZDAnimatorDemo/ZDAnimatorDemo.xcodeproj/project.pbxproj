@@ -32,6 +32,7 @@
 		61159FA5217DC23A0083510C /* AnimatedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159FA4217DC23A0083510C /* AnimatedImageView.swift */; };
 		6131AF4B21AB95B900A3C9A6 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6131AF4A21AB95B900A3C9A6 /* ParameterEncoding.swift */; };
 		6131AF4D21ABC4E100A3C9A6 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6131AF4C21ABC4E100A3C9A6 /* MultipartFormData.swift */; };
+		6167E9F521AE659D00C08DCD /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6167E9F421AE659D00C08DCD /* Response.swift */; };
 		616DC50021830BA2000BCB8C /* ThreadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F7C2178155E0083510C /* ThreadHelper.swift */; };
 		616DC50121830BA2000BCB8C /* ImageView+Kingfier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159FA0217DB02C0083510C /* ImageView+Kingfier.swift */; };
 		616DC50221830BA2000BCB8C /* FormatIndicatedCacheSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159F9221785D1C0083510C /* FormatIndicatedCacheSerializer.swift */; };
@@ -128,6 +129,7 @@
 		61159FA4217DC23A0083510C /* AnimatedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedImageView.swift; sourceTree = "<group>"; };
 		6131AF4A21AB95B900A3C9A6 /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
 		6131AF4C21ABC4E100A3C9A6 /* MultipartFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormData.swift; sourceTree = "<group>"; };
+		6167E9F421AE659D00C08DCD /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		616DC4FB218308B3000BCB8C /* ZDAnimatorDemo copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ZDAnimatorDemo copy-Info.plist"; path = "/Users/season/Desktop/ZDAnimatorKit/ZDAnimatorDemo/ZDAnimatorDemo copy-Info.plist"; sourceTree = "<absolute>"; };
 		616DC53021830BA2000BCB8C /* ZDAnimatorDemo copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZDAnimatorDemo copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		616DC53121830BA2000BCB8C /* ZDAnimatorDemo copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ZDAnimatorDemo copy2-Info.plist"; path = "/Users/season/Desktop/ZDAnimatorKit/ZDAnimatorDemo/ZDAnimatorDemo copy2-Info.plist"; sourceTree = "<absolute>"; };
@@ -277,6 +279,7 @@
 				61F4CC4A21A78EF00053195B /* Alamofire.swift */,
 				6131AF4A21AB95B900A3C9A6 /* ParameterEncoding.swift */,
 				6131AF4C21ABC4E100A3C9A6 /* MultipartFormData.swift */,
+				6167E9F421AE659D00C08DCD /* Response.swift */,
 			);
 			path = AlamofireWrite;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				61F4CC4621A691F00053195B /* AFError.swift in Sources */,
 				61159F9321785D1C0083510C /* FormatIndicatedCacheSerializer.swift in Sources */,
 				61B0C74B2122AD2900EA827B /* AnimationTransitionConfig.swift in Sources */,
+				6167E9F521AE659D00C08DCD /* Response.swift in Sources */,
 				61159F9B2179A6B20083510C /* ImagePrefetcher.swift in Sources */,
 				61159F91217858F30083510C /* Filter.swift in Sources */,
 				61B0C7462122AD2900EA827B /* AnimationInteractiveTransition.swift in Sources */,

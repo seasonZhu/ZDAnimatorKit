@@ -25,7 +25,7 @@ public struct Timeline {
     
     public let totalDuration: TimeInterval
     
-    init(requestStartTime: CFAbsoluteTime = 0.0,
+    public init(requestStartTime: CFAbsoluteTime = 0.0,
          initialResponseTime: CFAbsoluteTime = 0.0,
          requestCompletedTime: CFAbsoluteTime = 0.0,
          serializationCompletedTime: CFAbsoluteTime = 0.0) {

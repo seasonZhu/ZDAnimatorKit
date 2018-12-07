@@ -234,3 +234,24 @@ extension ViewController {
         }
     }
 }
+
+struct Model {
+    var a: Int
+    var b: Int
+    
+    func add() -> Int {
+        return a + b
+    }
+}
+
+protocol Add {
+    var a: Int { get set }
+    
+    var b: Int { get set }
+    
+    func add() -> Int
+}
+
+extension Model: Add {
+    
+}
