@@ -14,7 +14,7 @@ import MobileCoreServices
 import CoreServices
 #endif
 
-public typealias HTTPHeaders = [String: String]
+
 
 /*
  这段翻译出自Alamofire的关于表单数据化的英文:
