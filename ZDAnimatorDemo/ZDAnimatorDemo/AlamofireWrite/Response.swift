@@ -22,8 +22,8 @@ public struct DefaultDataResponse {
     
     var _metrics: AnyObject?
     
-    public init(request: URLRequest,
-                response: HTTPURLResponse,
+    public init(request: URLRequest?,
+                response: HTTPURLResponse?,
                 data: Data?,
                 error: Error?,
                 timeline: Timeline = Timeline(),
@@ -137,7 +137,7 @@ public struct DefaultDownloadResponse {
                 temporaryURL: URL?,
                 destinationURL: URL?,
                 resumeData: Data?,
-                error: Error,
+                error: Error?,
                 timeline: Timeline = Timeline(),
                 metrics: AnyObject? = nil) {
         self.request = request
