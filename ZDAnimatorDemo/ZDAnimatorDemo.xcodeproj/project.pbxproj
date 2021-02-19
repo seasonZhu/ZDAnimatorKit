@@ -30,6 +30,9 @@
 		61159FA1217DB02C0083510C /* ImageView+Kingfier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159FA0217DB02C0083510C /* ImageView+Kingfier.swift */; };
 		61159FA3217DB0460083510C /* UIButton+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159FA2217DB0460083510C /* UIButton+Kingfisher.swift */; };
 		61159FA5217DC23A0083510C /* AnimatedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61159FA4217DC23A0083510C /* AnimatedImageView.swift */; };
+		6122105621BA5D3D00921C13 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6122105521BA5D3D00921C13 /* Request.swift */; };
+		6122105821BA5D5E00921C13 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6122105721BA5D5E00921C13 /* Validation.swift */; };
+		6122105A21BA768A00921C13 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6122105921BA768A00921C13 /* ResponseSerialization.swift */; };
 		6131AF4B21AB95B900A3C9A6 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6131AF4A21AB95B900A3C9A6 /* ParameterEncoding.swift */; };
 		6131AF4D21ABC4E100A3C9A6 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6131AF4C21ABC4E100A3C9A6 /* MultipartFormData.swift */; };
 		6167E9F521AE659D00C08DCD /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6167E9F421AE659D00C08DCD /* Response.swift */; };
@@ -75,6 +78,7 @@
 		616DC52921830BA2000BCB8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61B0C7322122ACFB00EA827B /* LaunchScreen.storyboard */; };
 		616DC52A21830BA2000BCB8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61B0C7302122ACFB00EA827B /* Assets.xcassets */; };
 		616DC52B21830BA2000BCB8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61B0C72D2122ACFB00EA827B /* Main.storyboard */; };
+		6173138121C3844C00DC51F5 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6173138021C3844C00DC51F5 /* TaskDelegate.swift */; };
 		61B0C72A2122ACFA00EA827B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B0C7292122ACFA00EA827B /* AppDelegate.swift */; };
 		61B0C72C2122ACFA00EA827B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B0C72B2122ACFA00EA827B /* ViewController.swift */; };
 		61B0C72F2122ACFB00EA827B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61B0C72D2122ACFB00EA827B /* Main.storyboard */; };
@@ -94,6 +98,7 @@
 		61B0C7532122B6A900EA827B /* MaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B0C7522122B6A900EA827B /* MaskController.swift */; };
 		61B0C7552122C0D700EA827B /* MagicMoveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B0C7542122C0D700EA827B /* MagicMoveController.swift */; };
 		61B0C7572122C68F00EA827B /* TikTokControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B0C7562122C68F00EA827B /* TikTokControll.swift */; };
+		61B69BB121D31A230038A2E3 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B69BB021D31A230038A2E3 /* ServerTrustPolicy.swift */; };
 		61F4CC3C21A656AF0053195B /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F4CC3B21A656AF0053195B /* DispatchQueue+Alamofire.swift */; };
 		61F4CC3E21A657E70053195B /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F4CC3D21A657E70053195B /* Notifications.swift */; };
 		61F4CC4021A658C60053195B /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F4CC3F21A658C60053195B /* Timeline.swift */; };
@@ -127,12 +132,16 @@
 		61159FA0217DB02C0083510C /* ImageView+Kingfier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+Kingfier.swift"; sourceTree = "<group>"; };
 		61159FA2217DB0460083510C /* UIButton+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Kingfisher.swift"; sourceTree = "<group>"; };
 		61159FA4217DC23A0083510C /* AnimatedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedImageView.swift; sourceTree = "<group>"; };
+		6122105521BA5D3D00921C13 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		6122105721BA5D5E00921C13 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		6122105921BA768A00921C13 /* ResponseSerialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseSerialization.swift; sourceTree = "<group>"; };
 		6131AF4A21AB95B900A3C9A6 /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
 		6131AF4C21ABC4E100A3C9A6 /* MultipartFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormData.swift; sourceTree = "<group>"; };
 		6167E9F421AE659D00C08DCD /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		616DC4FB218308B3000BCB8C /* ZDAnimatorDemo copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ZDAnimatorDemo copy-Info.plist"; path = "/Users/season/Desktop/ZDAnimatorKit/ZDAnimatorDemo/ZDAnimatorDemo copy-Info.plist"; sourceTree = "<absolute>"; };
 		616DC53021830BA2000BCB8C /* ZDAnimatorDemo copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZDAnimatorDemo copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		616DC53121830BA2000BCB8C /* ZDAnimatorDemo copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ZDAnimatorDemo copy2-Info.plist"; path = "/Users/season/Desktop/ZDAnimatorKit/ZDAnimatorDemo/ZDAnimatorDemo copy2-Info.plist"; sourceTree = "<absolute>"; };
+		6173138021C3844C00DC51F5 /* TaskDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDelegate.swift; sourceTree = "<group>"; };
 		61B0C7262122ACFA00EA827B /* ZDAnimatorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZDAnimatorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61B0C7292122ACFA00EA827B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61B0C72B2122ACFA00EA827B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +163,7 @@
 		61B0C7522122B6A900EA827B /* MaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskController.swift; sourceTree = "<group>"; };
 		61B0C7542122C0D700EA827B /* MagicMoveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicMoveController.swift; sourceTree = "<group>"; };
 		61B0C7562122C68F00EA827B /* TikTokControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTokControll.swift; sourceTree = "<group>"; };
+		61B69BB021D31A230038A2E3 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTrustPolicy.swift; sourceTree = "<group>"; };
 		61F4CC3B21A656AF0053195B /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
 		61F4CC3D21A657E70053195B /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		61F4CC3F21A658C60053195B /* Timeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
@@ -279,7 +289,12 @@
 				61F4CC4A21A78EF00053195B /* Alamofire.swift */,
 				6131AF4A21AB95B900A3C9A6 /* ParameterEncoding.swift */,
 				6131AF4C21ABC4E100A3C9A6 /* MultipartFormData.swift */,
+				61B69BB021D31A230038A2E3 /* ServerTrustPolicy.swift */,
 				6167E9F421AE659D00C08DCD /* Response.swift */,
+				6173138021C3844C00DC51F5 /* TaskDelegate.swift */,
+				6122105521BA5D3D00921C13 /* Request.swift */,
+				6122105921BA768A00921C13 /* ResponseSerialization.swift */,
+				6122105721BA5D5E00921C13 /* Validation.swift */,
 			);
 			path = AlamofireWrite;
 			sourceTree = "<group>";
@@ -438,6 +453,7 @@
 				6167E9F521AE659D00C08DCD /* Response.swift in Sources */,
 				61159F9B2179A6B20083510C /* ImagePrefetcher.swift in Sources */,
 				61159F91217858F30083510C /* Filter.swift in Sources */,
+				61B69BB121D31A230038A2E3 /* ServerTrustPolicy.swift in Sources */,
 				61B0C7462122AD2900EA827B /* AnimationInteractiveTransition.swift in Sources */,
 				61B0C7572122C68F00EA827B /* TikTokControll.swift in Sources */,
 				61159F7B2178152A0083510C /* String+MD5.swift in Sources */,
@@ -452,6 +468,7 @@
 				61B0C72C2122ACFA00EA827B /* ViewController.swift in Sources */,
 				61B0C7512122B3FA00EA827B /* SmoothController.swift in Sources */,
 				61F4CC4421A684E00053195B /* NetworkReachabilityManager.swift in Sources */,
+				6173138121C3844C00DC51F5 /* TaskDelegate.swift in Sources */,
 				61159F8D21784FAC0083510C /* ImageCache.swift in Sources */,
 				61F4CC3E21A657E70053195B /* Notifications.swift in Sources */,
 				61159F8921781FE40083510C /* KingfisherOptionsInfo.swift in Sources */,
@@ -461,16 +478,19 @@
 				61B0C7492122AD2900EA827B /* AnimationSmoothEffect.swift in Sources */,
 				61B0C7552122C0D700EA827B /* MagicMoveController.swift in Sources */,
 				61B0C7532122B6A900EA827B /* MaskController.swift in Sources */,
+				6122105A21BA768A00921C13 /* ResponseSerialization.swift in Sources */,
 				61B0C7452122AD2900EA827B /* AnimationBasicEffect.swift in Sources */,
 				61159F97217871D30083510C /* ImageModifer.swift in Sources */,
 				61159F8B217820CD0083510C /* Image.swift in Sources */,
 				61B0C74D2122AD2900EA827B /* UIViewController+AnimationTransition.swift in Sources */,
 				61159F8F217856D10083510C /* CacheSerializer.swift in Sources */,
+				6122105621BA5D3D00921C13 /* Request.swift in Sources */,
 				6131AF4B21AB95B900A3C9A6 /* ParameterEncoding.swift in Sources */,
 				61B0C7482122AD2900EA827B /* AnimationMaskEffect.swift in Sources */,
 				61F4CC3C21A656AF0053195B /* DispatchQueue+Alamofire.swift in Sources */,
 				61B0C74C2122AD2900EA827B /* UINavigationController+AnimationTransition.swift in Sources */,
 				61159F95217871B90083510C /* ImageDownloader.swift in Sources */,
+				6122105821BA5D5E00921C13 /* Validation.swift in Sources */,
 				61F4CC4021A658C60053195B /* Timeline.swift in Sources */,
 				61B0C72A2122ACFA00EA827B /* AppDelegate.swift in Sources */,
 				61159F9D2179A9FE0083510C /* ImageProcessor.swift in Sources */,
